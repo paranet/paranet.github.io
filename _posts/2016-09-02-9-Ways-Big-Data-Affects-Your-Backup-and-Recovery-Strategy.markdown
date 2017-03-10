@@ -1,7 +1,8 @@
 ---
 layout: post
 author_name: Blake Bellman
-author_avatar: jason_ihaia.png
+author_avatar: blake_bellman.jpg
+splash: /assets/images/posts/Big-data.jpg
 ---
 
 When major publications stop capitalizing terms like “internet” and “web,” you know those things have become commonplace. They’ve become accepted as here to stay. Even the internet of things (lowercase) is accepted as fact—even if its potential is far from being realized.
