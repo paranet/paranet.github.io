@@ -11,7 +11,7 @@
     google.maps.event.addDomListener(window, 'load', init);
 
     var map;
-    var zoomLevel = 11;
+    var zoomLevel = 10;
 
     function init() {
         // Basic options for a simple Google Map
@@ -21,7 +21,7 @@
             zoom: zoomLevel,
             disableDefaultUI: true,
             // The latitude and longitude to center the map (always required)
-            center: new google.maps.LatLng(40.6700, -73.9400), // New York
+            center: new google.maps.LatLng(32.9400414, -96.8257862), // 32.9400414,-96.8257862 Dallas TX
             scrollwheel: false,
             // Map styling
             styles: [{
@@ -135,7 +135,7 @@
             }]
         };
 
-        // Get the HTML DOM element that will contain your map 
+        // Get the HTML DOM element that will contain your map
         // We are using a div with id="map" seen below in the <body>
         var mapElement = document.getElementById('google-map');
 
