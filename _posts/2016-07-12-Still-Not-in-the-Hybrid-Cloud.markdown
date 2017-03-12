@@ -1,7 +1,7 @@
 ---
 layout: post
 author_name: Brad Dorethy
-author_avatar: kris_lamberth.png
+author_avatar: brad_dorethy.jpg
 subtitle: 8 Reasons You Should Be
 splash: /assets/images/posts/hybridcloud_8reasons.jpg
 ---

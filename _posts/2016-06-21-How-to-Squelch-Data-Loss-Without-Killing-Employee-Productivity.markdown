@@ -1,7 +1,7 @@
 ---
 layout: post
 author_name: Bradley Todd
-author_avatar: bradley_todd.png
+author_avatar: bradley_todd.jpg
 splash: /assets/images/posts/people.jpg
 ---
 

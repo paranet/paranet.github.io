@@ -1,7 +1,7 @@
 ---
 layout: post
 author_name: Blake Bellman
-author_avatar: jason_ihaia.png
+author_avatar: blake_bellman.jpg
 subtitle: Lucky You!
 ---
 

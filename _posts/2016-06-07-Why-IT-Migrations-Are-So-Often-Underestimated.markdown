@@ -1,7 +1,7 @@
 ---
 layout: post
 author_name: Brad Dorethy
-author_avatar: kris_lamberth.png
+author_avatar: brad_dorethy.jpg
 ---
 
 When you think of hiring a managed service provider (MSP), you often think of computer and user management, storage capacity, networking and security. These are typical needs of a small to medium businesses (SMBs) with little or in-house IT staff. But there’s far more to outsourcing IT than the basic services, no matter how comprehensive they are.

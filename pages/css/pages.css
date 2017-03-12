@@ -7625,6 +7625,21 @@ sup.dollar {
   position: relative;
   margin-top: -232px;
 }
+.backlit {
+  background-color: rgba(255, 120, 38, 0.9);
+  color: white !important;
+  padding: 10px 20px;
+  display: inline-block;
+}
+.backlit.accent {
+  background-color: rgba(59, 83, 102, 0.8);
+}
+h1 .backlit {
+  line-height: 100px !important;
+}
+p .backlit {
+  line-height: 60px !important;
+}
 .visible-xlg {
   display: none;
 }
