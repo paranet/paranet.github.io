@@ -15,6 +15,7 @@ $(document).ready(function() {
         speed: 1000,
     });
 
+
     //Intialize Testamonials
     var testimonials_slider = new Swiper('#testimonials_slider', {
         pagination: '.swiper-pagination',
