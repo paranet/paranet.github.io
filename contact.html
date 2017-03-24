@@ -1,5 +1,6 @@
 ---
 layout: page
+title: Contact Us
 ---
 
 <!-- START CONTACT SECTION -->
@@ -8,29 +9,29 @@ layout: page
         <div class="col-md-6">
             <h2>We'd love to hear from you!</h2>
             <div class="p-r-40 sm-p-r-0">
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+                <p>If you have a question, concern or would like to tell us how good we're doing, we'd love to hear from you.</p>
                 <br>
                 <br>
                 <div class="panel" id="contact-panel">
-                    <p class="semi-bold no-margin">Fill out this form to contact us if you have any futher questions</p>
-                    <form role="form" autocomplete="off" class="m-t-15" id="contact-form" action="_lib/mail.php" method="post">
+                    <p class="semi-bold no-margin">Please complete all required (*) fields.</p>
+                    <form role="form" autocomplete="off" class="m-t-15" id="contact_us_form">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default required">
                                     <label>First name</label>
-                                    <input type="text" name="name" class="form-control" required>
+                                    <input type="text" name="first_name" class="form-control" placeholder="e.g. Peter" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default required">
                                     <label>Last name</label>
-                                    <input type="text" name="last-name" class="form-control" required>
+                                    <input type="text" name="last_name" placeholder="e.g. Pan" class="form-control" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group form-group-default required">
                             <label>Email</label>
-                            <input type="email" name="email" placeholder="This can be changed later" class="form-control" required>
+                            <input type="email" name="email" placeholder="e.g. peter.pan@neverland.com" class="form-control" required>
                         </div>
                         <div class="form-group form-group-default required">
                             <label>Message</label>
@@ -38,7 +39,7 @@ layout: page
                         </div>
                         <div class="sm-p-t-10 clearfix">
                             <p class="pull-left small hint-text m-t-5 font-arial">I hereby certify that the information above is true and accurate. </p>
-                            <button class="btn btn-primary font-montserrat all-caps fs-12 pull-right xs-pull-left">Submit</button>
+                            <button type="submit" class="btn btn-primary font-montserrat all-caps fs-12 pull-right xs-pull-left" disabled="disabled">Submit</button>
                         </div>
                         <div class="clearfix"></div>
                     </form>
@@ -48,9 +49,11 @@ layout: page
         <div class="col-md-6">
             <div class="visible-xs visible-sm b-b b-grey-light m-t-35 m-b-30"></div>
             <div class="p-l-40 sm-p-l-0 sm-p-t-10">
-                <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+                <h3>Other ways to reach us.</h3>
+                <p>If you'd like to call us or come visit us, please see the details below.</p>
                 <br>
+                <br />
+                <br />
                 <div class="row">
                     <div class="col-sm-6">
                         <h5 class="block-title hint-text m-b-0">texas </h5>
@@ -99,3 +102,46 @@ layout: page
     <div id="google-map" class="full-width demo-map gradient-overlay no-overflow"></div>
 </section>
 <!-- END GOOGLE MAP -->
+
+
+
+<script>
+    $(document).ready(function() {
+        $('#contact_us_form')
+            .formValidation({
+                framework: 'bootstrap',
+                icon: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                }
+            })
+            .on('success.field.fv', function(e, data) {
+                if (data.fv.getInvalidFields().length > 0) { // There is invalid field
+                    data.fv.disableSubmitButtons(true);
+                }
+            });
+
+
+      $('#contact_us_form').on('submit', function(e){
+
+        e.preventDefault();
+        // Change to your service ID, or keep using the default service
+        var service_id = "sendgrid",
+            template_id = "paranet_contact_us",
+            form = "contact_us_form";
+
+        emailjs.sendForm(service_id, template_id, form)
+            .then(function() {
+
+            }, function(err) {
+                alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+
+            });
+        return false;
+
+      });
+
+
+    });
+</script>

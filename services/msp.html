@@ -215,17 +215,16 @@ description: With Paranet's Managed Services offering, we proactively manage you
         <div class="container">
             <div class="row">
                 <div class="col-sm-7">
-                    <h1 class="light m-t-5">Request Managed Services Guide</h1>
+                    <h1 class="light m-t-5">Request a Managed Services Guide</h1>
 
-                    <h5 class="hint-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-apps and details</h5>
+                    <h5 class="hint-text">Learn how to choose a Managed Services Provider that is right for your organization.  Finding the perfect MSP is easy, if you understand what a competent provider includes.</h5>
                     <form class="m-t-30 m-b-20" id="request_msp_form">
 
                         <div class="form-group form-group-default input-group col-md-12  col-sm-12">
                             <label>Email Address</label>
-                            <input type="email" placeholder="johnsmith@abc.com" class="form-control" name="to_email">
+                            <input type="email" placeholder="johnsmith@abc.com" class="form-control" name="to_email" required>
                             <span class="input-group-btn">
-                            <button type="button" class="btn btn-primary btn-cons" onclick="emailjs.sendForm('sendgrid','download_msp_guide','request_msp_form');">Request</button>
+                            <button type="submit" class="btn btn-primary btn-cons" disabled="disabled">Request</button>
                         </span>
                             <br>
                         </div>
@@ -238,3 +237,54 @@ apps and details</h5>
         </div>
     </div>
 </section>
+
+<script>
+    $(document).ready(function() {
+        $('#request_msp_form')
+            .formValidation({
+                framework: 'bootstrap',
+                icon: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                }
+            })
+            .on('success.field.fv', function(e, data) {
+                if (data.fv.getInvalidFields().length > 0) { // There is invalid field
+                    data.fv.disableSubmitButtons(true);
+                }
+            }).on('err.field.fv', function(e, data) {
+            // $(e.target)  --> The field element
+            // data.fv      --> The FormValidation instance
+            // data.field   --> The field name
+            // data.element --> The field element
+
+            // Hide the messages
+            data.element
+                .data('fv.messages')
+                .find('.help-block[data-fv-for="' + data.field + '"]').hide();
+        });
+
+
+      $('#request_msp_form').on('submit', function(e){
+
+        e.preventDefault();
+        // Change to your service ID, or keep using the default service
+        var service_id = "sendgrid",
+            template_id = "download_msp_guide",
+            form = "request_msp_form";
+
+        emailjs.sendForm(service_id, template_id, form)
+            .then(function() {
+              alert('Email sent!');
+            }, function(err) {
+                alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+
+            });
+        return false;
+
+      });
+
+
+    });
+</script>

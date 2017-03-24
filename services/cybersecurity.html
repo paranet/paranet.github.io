@@ -121,7 +121,7 @@ title: Cybersecurity
 <section class="container container-fixed-lg p-t-40 p-b-5">
     <div class="row m-b-50">
         <div class="col-md-12">
-            <h2>Paranet Secuirty Assessment Overview.</h2>
+            <h2>Paranet Secuirty Assessment Overview</h2>
             <p class="lead p-t-20 p-b-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <p class="p-t-20 p-b-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
@@ -314,24 +314,77 @@ title: Cybersecurity
     <div class="">
         <div class="container">
             <div class="row">
-                <div class="col-sm-7">
-                    <h1 class="light m-t-5">Request a Security Assessment</h1>
-                    <h5 class="hint-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-apps and details</h5>
-                    <form class="m-t-30 m-b-20">
-                        <div class="form-group form-group-default input-group col-md-12  col-sm-12">
-                            <label>Email Address</label>
-                            <input type="email" placeholder="johnsmith@abc.com" class="form-control">
-                            <span class="input-group-btn">
-                            <button type="button" class="btn btn-primary  btn-cons">Request</button>
-                        </span>
-                            <br>
-                        </div>
-                        <p class="font-arial fs-12 hint-text">We value your <strong>privacy</strong>. None of the details supplied will be shared with external parties</p>
-                    </form>
+                <div class="col-sm-12">
+                    <h1 class="light m-t-5">Request a Security Guide</h1>
+                    <h5 class="hint-text">Learn how to protect your business from the most prevalent and insidious security threats.  Partner with Paranet to protect your enterprise network, systems and data 24/7.</h5>
+<form class="m-t-30 m-b-20" id="request_cyber_form">
+
+    <div class="form-group form-group-default input-group col-md-12  col-sm-12">
+        <label>Email Address</label>
+        <input type="email" placeholder="johnsmith@abc.com" class="form-control" name="to_email" required>
+        <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary btn-cons" disabled="disabled">Request</button>
+    </span>
+        <br>
+    </div>
+    <p class="font-arial fs-12 hint-text">We value your <strong>privacy</strong>. None of the
+        details supplied will be shared with external parties</p>
+</form>
                 </div>
 
             </div>
         </div>
     </div>
 </section>
+
+
+<script>
+    $(document).ready(function() {
+        $('#request_cyber_form')
+            .formValidation({
+                framework: 'bootstrap',
+                icon: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                }
+            })
+            .on('success.field.fv', function(e, data) {
+                if (data.fv.getInvalidFields().length > 0) { // There is invalid field
+                    data.fv.disableSubmitButtons(true);
+                }
+            }).on('err.field.fv', function(e, data) {
+            // $(e.target)  --> The field element
+            // data.fv      --> The FormValidation instance
+            // data.field   --> The field name
+            // data.element --> The field element
+
+            // Hide the messages
+            data.element
+                .data('fv.messages')
+                .find('.help-block[data-fv-for="' + data.field + '"]').hide();
+        });
+
+
+      $('#request_cyber_form').on('submit', function(e){
+
+        e.preventDefault();
+        // Change to your service ID, or keep using the default service
+        var service_id = "sendgrid",
+            template_id = "download_security_guide",
+            form = "request_cyber_form";
+
+        emailjs.sendForm(service_id, template_id, form)
+            .then(function() {
+              alert('Email sent!');
+            }, function(err) {
+                alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+
+            });
+        return false;
+
+      });
+
+
+    });
+</script>
