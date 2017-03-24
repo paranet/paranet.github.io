@@ -208,12 +208,12 @@ desktop upgrades, patches and applications.</p>
                     <h1 class="light m-t-5">Request Managed Services Guide</h1>
                     <h5 class="hint-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 apps and details</h5>
-                    <form class="m-t-30 m-b-20">
+                    <form class="m-t-30 m-b-20" id="request_msp_form">
                         <div class="form-group form-group-default input-group col-md-12  col-sm-12">
                             <label>Email Address</label>
-                            <input type="email" placeholder="johnsmith@abc.com" class="form-control">
+                            <input type="email" placeholder="johnsmith@abc.com" class="form-control" name="to_email">
                             <span class="input-group-btn">
-                            <button type="button" class="btn btn-primary  btn-cons">Request</button>
+                            <button type="button" class="btn btn-primary btn-cons" onclick="emailjs.sendForm('sendgrid','download_msp_guide','request_msp_form');">Request</button>
                         </span>
                     <br>
             </div>
