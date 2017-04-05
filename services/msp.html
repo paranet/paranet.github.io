@@ -70,7 +70,7 @@ description: With Paranet's Managed Services offering, we proactively manage you
                 <div class="text-center">
                     <h1 class="text-white col-sm-12 p-b-10">You build your business network. We'll take care of your
                         computing network.</h1>
-                    <button class="btn btn-lg btn-default btn-cons btn-rounded" type="button">Explore</button>
+                    <a id="explore_msp_btn" class="btn btn-lg btn-default btn-cons btn-rounded" type="button">Explore</a>
                     <p class="text-white hint-text font-arial m-t-30">Many of the world’s most successful companies
                         count on Paranet to manage their projects and serve their
                         technology needs. Across industry verticals, Paranet has proven to be a trusted technology
@@ -185,22 +185,13 @@ description: With Paranet's Managed Services offering, we proactively manage you
             <div class="swiper-slide">
                 <div class="container">
                     <div class="col-sm-10 col-sm-offset-1">
-                        <img src="/assets/images/partners.png" class="image-responsive-height lazy sm-m-t-30 loaded"
+                        <img src="/assets/images/partners1.png" class="image-responsive-height lazy sm-m-t-30 loaded"
                              alt="">
                     </div>
                 </div>
             </div>
             <!-- END TESTIMONIAL -->
-            <!-- BEGIN TESTIMONIAL -->
-            <div class="swiper-slide">
-                <div class="container">
-                    <div class="col-sm-10 col-sm-offset-1">
-                        <img src="/assets/images/partners.png" class="image-responsive-height lazy sm-m-t-30 loaded"
-                             alt="">
-                    </div>
-                </div>
-            </div>
-            <!-- END TESTIMONIAL -->
+
         </div>
         <!-- Add Navigation -->
         <div class="swiper-pagination relative p-t-20"></div>
@@ -209,7 +200,7 @@ description: With Paranet's Managed Services offering, we proactively manage you
 </section>
 
 
-<section id="meet" class="p-b-60 p-t-60" data-pages-bg-image="/assets/images/bkgds/orange-2.png"
+<section id="request_msp_section" class="p-b-60 p-t-60" data-pages-bg-image="/assets/images/bkgds/orange-2.png"
          style="background-image: url('/assets/images/bkgds/orange-2.png');">
     <div class="">
         <div class="container">
@@ -218,6 +209,9 @@ description: With Paranet's Managed Services offering, we proactively manage you
                     <h1 class="light m-t-5">Request a Managed Services Guide</h1>
 
                     <h5 class="hint-text">Learn how to choose a Managed Services Provider that is right for your organization.  Finding the perfect MSP is easy, if you understand what a competent provider includes.</h5>
+                    <div id="msp-email-alert" class="alert alert-success" role="alert" style="display:none;">
+                        <strong>Request Sent!</strong> Check your email for a download link.
+                    </div>
                     <form class="m-t-30 m-b-20" id="request_msp_form">
 
                         <div class="form-group form-group-default input-group col-md-12  col-sm-12">
@@ -276,13 +270,19 @@ description: With Paranet's Managed Services offering, we proactively manage you
 
         emailjs.sendForm(service_id, template_id, form)
             .then(function() {
-              alert('Email sent!');
+              $('#msp-email-alert').show();
             }, function(err) {
                 alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
 
             });
         return false;
 
+      });
+
+      $('#explore_msp_btn').on('click', function(e){
+        $('html, body').animate({
+            scrollTop: $("#request_msp_section").offset().top
+        }, 1000);
       });
 
 

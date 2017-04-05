@@ -13,6 +13,9 @@ title: Contact Us
                 <br>
                 <br>
                 <div class="panel" id="contact-panel">
+                    <div id="message-sent-alert" class="alert alert-success" role="alert" style="display:none;">
+                        <strong>Message Sent!</strong> We've received your message and will get back to you as soon as possible.
+                    </div>
                     <p class="semi-bold no-margin">Please complete all required (*) fields.</p>
                     <form role="form" autocomplete="off" class="m-t-15" id="contact_us_form">
                         <div class="row">
@@ -123,24 +126,24 @@ title: Contact Us
             });
 
 
-      $('#contact_us_form').on('submit', function(e){
+        $('#contact_us_form').on('submit', function(e) {
 
-        e.preventDefault();
-        // Change to your service ID, or keep using the default service
-        var service_id = "paranet_mailgun_smtp_server",
-            template_id = "paranet_contact_us",
-            form = "contact_us_form";
+            e.preventDefault();
+            // Change to your service ID, or keep using the default service
+            var service_id = "paranet_mailgun_smtp_server",
+                template_id = "paranet_contact_us",
+                form = "contact_us_form";
 
-        emailjs.sendForm(service_id, template_id, form)
-            .then(function() {
+            emailjs.sendForm(service_id, template_id, form)
+                .then(function() {
+                  $('#message-sent-alert').show();
+                }, function(err) {
+                    alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
 
-            }, function(err) {
-                alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+                });
+            return false;
 
-            });
-        return false;
-
-      });
+        });
 
 
     });
