@@ -1,5 +1,5 @@
 ---
-layout: job
+layout: career
 title: Systems Engineer
 job_url: http://www.ondemandassessment.com/verify/apply/AeABveB/hanbhnbT
 ---
