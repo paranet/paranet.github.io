@@ -2,6 +2,9 @@
 layout: career
 title: Senior Systems Engineer
 job_url: http://www.ondemandassessment.com/verify/apply/RRvABeR/hanCnaaw
+location: Dallas, TX
+position: Full-time
+snippet: Paranet is seeking a talented Senior Systems Engineer (SSE) to join our team. The SSE is responsible for providing day-to-day support of critical systems, completing project work, and acting as a trusted advisor within the organization
 ---
 
 # Senior Systems Engineer

@@ -2,6 +2,9 @@
 layout: career
 title: Systems Engineer
 job_url: http://www.ondemandassessment.com/verify/apply/AeABveB/hanbhnbT
+location: Dallas, TX
+position: Full-time
+snippet: Paranet is seeking a talented Systems Engineer (SE) to join our team.  The SE is responsible for providing day-to-day technical assistance to end users and completing regular systems maintenance tasks, while providing world-class customer service.
 ---
 
 # Systems Engineer
