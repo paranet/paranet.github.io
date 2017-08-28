@@ -2,7 +2,7 @@ title: Paranet
 email: support@paranet.com
 description: Paranet has been a leading provider of IT managed and professional services, network security, cloud solutions and IT due diligence for over 25 years.
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://www.paranet.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://paranet.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
